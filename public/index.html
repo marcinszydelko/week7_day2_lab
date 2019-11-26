@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Countries Lab</title>
+    <script src="./js/bundle.js" type="text/javascript">
+    </script>
+    <link rel="stylesheet" href="./css/styles.css">
+  </head>
+  <body>
+
+    <div id="app">
+      <h1>Countries</h1>
+      <h2>Total population of the countries {{totalPopulation}}</h2>
+
+      <label for="country">Select Country</label>
+      <select v-model="selectedCountry" id="country" class="" name="">
+        <option v-for="country in allCountries"  v-bind:value="country">{{country.name}}</option>
+      </select>
+      <hr>
+
+      <div class="selectedCountry">
+      <span>Country: {{selectedCountry.name}}</span></br>
+      <span>Population: {{selectedCountry.population}}</span></br>
+      <span>Capital: {{selectedCountry.capital}}</span></br>
+      <span>Flag:</span></br>
+
+      <img id="flag-id" :src="selectedCountry.flag" width="300px">
+
+      <button v-on:click="addToFavourites" type="button">Add to favourites</button>
+      </div>
+
+      <ul>
+        <p>Neighbouring countries</p>
+        <li v-for="country in neighbouringCountries">{{country}}</li>
+      </ul>
+
+
+
+      <ul>
+        <h2>Favourite Countries</h2>
+        <li v-for="country in favourites">{{country.name}}</li>
+      </ul>
+
+
+    </div>
+
+  </body>
+</html>
